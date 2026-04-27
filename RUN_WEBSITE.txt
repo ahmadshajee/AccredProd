@@ -1,0 +1,40 @@
+AccredChain Run Guide (Windows PowerShell)
+
+Current status:
+- Frontend is running at http://127.0.0.1:5173
+- Backend health is OK at http://127.0.0.1:5000/api/health
+
+If you need to run from scratch:
+
+1) Open terminal #1 (backend)
+cd server
+npm install
+npm run dev
+
+Backend URL:
+http://127.0.0.1:5000
+
+2) Open terminal #2 (frontend)
+cd client
+npm install
+npm run dev -- --host 127.0.0.1
+
+Frontend URL:
+http://127.0.0.1:5173
+
+3) Open website in browser
+http://127.0.0.1:5173
+
+Optional: import legacy seed data into MongoDB
+cd server
+npm run seed:import
+
+If port 5000 is already in use:
+- A backend server is likely already running.
+- Check health endpoint first:
+  http://127.0.0.1:5000/api/health
+- If needed, stop old process on port 5000 and run backend again.
+
+Default admin account:
+Email: admin@accredchain.com
+Password: admin123

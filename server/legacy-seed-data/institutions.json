@@ -1,0 +1,50 @@
+[
+  {
+    "id": "517344f6-da1f-446d-80e6-14a71e889536",
+    "name": "Acme University",
+    "domain": "acme.edu",
+    "status": "approved",
+    "registeredBy": "284cde4b-d07b-4462-b01e-78450ab98b6f",
+    "createdAt": "2026-03-06T19:34:30.690Z"
+  },
+  {
+    "id": "e526575c-5ac1-4445-abd2-8db4832eabc5",
+    "name": "Test Institute",
+    "domain": "test679914270.edu",
+    "status": "approved",
+    "registeredBy": "bfa823c2-3a10-45ec-baa1-6a37a56f1244",
+    "createdAt": "2026-03-06T19:47:00.924Z"
+  },
+  {
+    "id": "eebc78f5-0f0b-417c-a84d-da3745767773",
+    "name": "Auto Institute",
+    "domain": "auto1066861977.edu",
+    "status": "approved",
+    "registeredBy": "57e5e265-dd99-4922-bc6a-22073a4ef8be",
+    "createdAt": "2026-03-07T02:46:41.345Z"
+  },
+  {
+    "id": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "name": "IITS Chennai",
+    "domain": "iits.edu",
+    "status": "approved",
+    "registeredBy": "94ded7c6-0ebb-4f2d-a181-c0a739719a4b",
+    "createdAt": "2026-03-07T02:58:47.931Z"
+  },
+  {
+    "id": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "name": "SRM Institute of Science and Technology",
+    "domain": "srm.edu",
+    "status": "approved",
+    "registeredBy": "537f55d0-67d8-42ff-af17-bd20ced7c8b7",
+    "createdAt": "2026-03-07T02:58:48.912Z"
+  },
+  {
+    "id": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "name": "VIT Vellore",
+    "domain": "vit.edu",
+    "status": "approved",
+    "registeredBy": "683f77ac-d9de-46dc-acd0-35e0a65a0c03",
+    "createdAt": "2026-03-07T02:58:49.603Z"
+  }
+]
