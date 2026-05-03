@@ -93,7 +93,7 @@ export default function VerifyResultPage() {
               <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Issued Date</span><p className="mt-2 text-white">{new Date(credential.issuedAt).toLocaleDateString()}</p></div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm text-[#F5E7C6]">
-              <p className="font-semibold text-white">Simulated Blockchain Proof</p>
+              <p className="font-semibold text-white">Blockchain Proof</p>
               <p className="mt-4 break-all font-mono text-xs">verificationKey: {credential.verificationKey || credential.txHash || credential.tokenId}</p>
               <p className="mt-4 break-all font-mono text-xs">txHash: {credential.txHash}</p>
               <p className="mt-2 break-all font-mono text-xs">tokenId: {credential.tokenId}</p>

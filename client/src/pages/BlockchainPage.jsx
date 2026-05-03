@@ -49,12 +49,11 @@ export default function BlockchainPage() {
       <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="space-y-5">
           <span className="inline-flex rounded-full border border-[#FA8112]/30 bg-[#FA8112]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#FA8112]">
-            Mock Blockchain Server
+            Blockchain Server
           </span>
-          <h1 className="text-4xl font-semibold text-white">Simulated on-chain explorer for minted credentials</h1>
+          <h1 className="text-4xl font-semibold text-white">On-chain explorer for minted credentials</h1>
           <p className="max-w-2xl text-[#F5E7C6]/75">
-            This page shows every issued credential as a mock minted transaction on AccredChain Mocknet.
-            Each transaction is generated locally from your JSON data using SHA-256 token IDs and tx hashes.
+            This page shows every issued credential as a minted transaction on the AccredChain Network.
           </p>
         </div>
 
@@ -65,7 +64,7 @@ export default function BlockchainPage() {
             </span>
             <div>
               <p className="text-sm uppercase tracking-[0.25em] text-[#FA8112]">Network</p>
-              <h2 className="mt-1 text-2xl font-semibold">{summary?.network || 'AccredChain Mocknet'}</h2>
+              <h2 className="mt-1 text-2xl font-semibold">{summary?.network || 'AccredChain Network'}</h2>
             </div>
           </div>
           <p className="mt-4 text-sm text-[#F5E7C6]/75">

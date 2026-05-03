@@ -31,7 +31,7 @@ async function listTransactions(_req, res) {
     const transactions = buildChainTransactions(credentials, institutions);
 
     const summary = {
-      network: 'AccredChain Mocknet',
+      network: 'AccredChain Network',
       latestBlock: transactions[0]?.blockNumber || 120000,
       totalTransactions: transactions.length,
       activeCredentials: credentials.filter((entry) => entry.status === 'active').length,

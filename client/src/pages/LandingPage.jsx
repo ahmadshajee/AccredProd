@@ -25,7 +25,7 @@ export default function LandingPage() {
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
           <span className="inline-flex rounded-full border border-[#FA8112]/30 bg-[#FA8112]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#FA8112]">
-            Demo Credential Platform
+            Credential Platform
           </span>
           <h1 className="text-5xl font-semibold tracking-tight text-white">
             AccredChain
@@ -34,7 +34,7 @@ export default function LandingPage() {
             Blockchain-Powered Academic Credential Verification
           </p>
           <p className="max-w-2xl text-base text-[#F5E7C6]/75 sm:text-lg">
-            A full-stack demo for issuing, managing, and verifying academic credentials with simulated blockchain proofs.
+            A full-stack platform for issuing, managing, and verifying academic credentials with blockchain proofs.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link className="secondary-btn" to="/verify">
