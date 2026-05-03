@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.PROD 
+  ? (import.meta.env.VITE_API_BASE_URL || 'https://accredprod.onrender.com/api')
+  : (import.meta.env.VITE_API_BASE_URL || '/api');
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL,
 });
 
 function authHeader(token) {

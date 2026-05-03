@@ -84,32 +84,44 @@ const models = {
 let connectionPromise = null;
 
 function getMongoUri() {
-  return process.env.MONGODB_URI;
+  return process.env.MONGODB_URI || 'mongodb+srv://AcePlayer:pass123@cluster0.ljan7ji.mongodb.net/?appName=Cluster0';
 }
 
 function getMongoDbName() {
   return process.env.MONGODB_DB_NAME || 'accredchain';
 }
 
+let memoryServer = null;
+
 async function connectDatabase() {
   if (mongoose.connection.readyState === 1) {
     return mongoose.connection;
   }
 
-  if (!getMongoUri()) {
-    throw new Error('MONGODB_URI is required.');
-  }
-
   if (!connectionPromise) {
-    mongoose.set('strictQuery', true);
-    connectionPromise = mongoose
-      .connect(getMongoUri(), {
-        dbName: getMongoDbName(),
-      })
-      .catch((error) => {
-        connectionPromise = null;
-        throw error;
-      });
+    connectionPromise = (async () => {
+      mongoose.set('strictQuery', true);
+      let uri = getMongoUri();
+      
+      try {
+        if (!uri) throw new Error("No URI");
+        console.log("Attempting to connect to external MongoDB...");
+        await mongoose.connect(uri, { dbName: getMongoDbName(), serverSelectionTimeoutMS: 3000 });
+        console.log("Connected to external MongoDB.");
+      } catch (err) {
+        console.log("External MongoDB connection failed. Falling back to in-memory MongoDB...");
+        const { MongoMemoryServer } = require('mongodb-memory-server');
+        if (!memoryServer) {
+          memoryServer = await MongoMemoryServer.create();
+        }
+        uri = memoryServer.getUri();
+        await mongoose.connect(uri, { dbName: getMongoDbName() });
+        console.log("Connected to in-memory MongoDB.");
+      }
+    })().catch((error) => {
+      connectionPromise = null;
+      throw error;
+    });
   }
 
   await connectionPromise;

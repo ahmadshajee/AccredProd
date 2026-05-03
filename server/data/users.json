@@ -1,0 +1,308 @@
+[
+  {
+    "id": "284cde4b-d07b-4462-b01e-78450ab98b6f",
+    "name": "Platform Admin",
+    "email": "admin@accredchain.local",
+    "passwordHash": "$2a$10$aYCnZ9k5vOC.5Kn1YQyXoeJd/TExG9n7cL9xDxeQ0jHxe5aom/o5a",
+    "role": "admin",
+    "institutionId": null,
+    "createdAt": "2026-03-06T19:34:30.689Z"
+  },
+  {
+    "id": "54877f54-7ab3-461e-9f05-89714a354de2",
+    "name": "Acme Registrar",
+    "email": "institution@acme.edu",
+    "passwordHash": "$2a$10$vXiAGZcUNm7iw2Nh0E254.JsJ0wq/MYaJoz9rDjf2RspJm7S6Za..",
+    "role": "institution",
+    "institutionId": "517344f6-da1f-446d-80e6-14a71e889536",
+    "createdAt": "2026-03-06T19:34:30.770Z"
+  },
+  {
+    "id": "528e77b1-a9ed-4d80-af58-73a59b2d75f3",
+    "name": "Demo Student",
+    "email": "student@example.com",
+    "passwordHash": "$2a$10$DZdycJjCdvnGJoIjWSyBh.G4JE75e/1upRHTCBM6GhjuZQHpl5BES",
+    "role": "student",
+    "institutionId": "517344f6-da1f-446d-80e6-14a71e889536",
+    "createdAt": "2026-03-06T19:34:30.850Z"
+  },
+  {
+    "id": "02bca622-9e6b-41fc-bbfa-baadc1dd2c17",
+    "name": "Default Admin",
+    "email": "admin@accredchain.com",
+    "passwordHash": "$2a$10$t7qUrpnNxV7yZTbYnd1iBONggkmgNpxVCU01WYTpmCn2gCBLZKaom",
+    "role": "admin",
+    "institutionId": null,
+    "createdAt": "2026-03-06T19:46:30.192Z"
+  },
+  {
+    "id": "d3b24438-e3a3-49ff-9dad-040fd5392017",
+    "name": "Test Student",
+    "email": "student679914270@example.com",
+    "passwordHash": "$2a$10$otJ97EDkzQ0KPC.BGUrVy.Dp9aLONkXfwP40E3fPxquEOdXNEB5hO",
+    "role": "student",
+    "institutionId": null,
+    "createdAt": "2026-03-06T19:47:00.789Z"
+  },
+  {
+    "id": "bfa823c2-3a10-45ec-baa1-6a37a56f1244",
+    "name": "Test Institution User",
+    "email": "institution679914270@example.com",
+    "passwordHash": "$2a$10$OAnfBp3DlbY8HYvbujuiTePfufD7/wUY4qzuEor3wE.eYaMA8B.Ti",
+    "role": "institution",
+    "institutionId": "e526575c-5ac1-4445-abd2-8db4832eabc5",
+    "createdAt": "2026-03-06T19:47:00.911Z"
+  },
+  {
+    "id": "57e5e265-dd99-4922-bc6a-22073a4ef8be",
+    "name": "Auto Inst User",
+    "email": "autoinst1326984334@example.com",
+    "passwordHash": "$2a$10$5eiYWt3ypDbS0ZNZumTEgeMOIKeDfWtatmhmARL3FGAdrirgpYYXO",
+    "role": "institution",
+    "institutionId": "eebc78f5-0f0b-417c-a84d-da3745767773",
+    "createdAt": "2026-03-07T02:46:41.329Z"
+  },
+  {
+    "id": "aa3cdfd1-ba7a-41cd-9ad2-b48fe9f47e90",
+    "name": "Fresh Student",
+    "email": "freshstudent2043704853@example.com",
+    "passwordHash": "$2a$10$l58MLw6PVXi7eZVB79w5du22dIaldNs4N/e2HkVBdxOotz9bccuDK",
+    "role": "student",
+    "institutionId": "eebc78f5-0f0b-417c-a84d-da3745767773",
+    "createdAt": "2026-03-07T02:46:41.471Z"
+  },
+  {
+    "id": "94ded7c6-0ebb-4f2d-a181-c0a739719a4b",
+    "name": "IITS Registrar",
+    "email": "registrar@iits.edu",
+    "passwordHash": "$2a$10$bG6bYK7PKC1qBerYWoNY9OCh/Iy/N9zmvHOLZF3LCGdYutbUiNjYW",
+    "role": "institution",
+    "institutionId": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "createdAt": "2026-03-07T02:58:47.914Z"
+  },
+  {
+    "id": "1feb71f9-f28d-4b4c-9364-8581c7f651c3",
+    "name": "Priya Nair",
+    "email": "priya.nair@iits.edu",
+    "passwordHash": "$2a$10$jJqXan0cFxv5kx0.mEQRDOUgzO5X3w3J48srJ3no8PaoGPdPS.9Tq",
+    "role": "student",
+    "institutionId": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "createdAt": "2026-03-07T02:58:48.115Z"
+  },
+  {
+    "id": "978d3695-28e0-434c-90cc-e6d1fd8a2b97",
+    "name": "Rohan Mehta",
+    "email": "rohan.mehta@iits.edu",
+    "passwordHash": "$2a$10$.p38WgiyIhsuFve8vzZMRuw9zMJ.iFgZnmTd9XmTbQFCGfU2HoXg2",
+    "role": "student",
+    "institutionId": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "createdAt": "2026-03-07T02:58:48.784Z"
+  },
+  {
+    "id": "537f55d0-67d8-42ff-af17-bd20ced7c8b7",
+    "name": "SRM Registrar",
+    "email": "registrar@srm.edu",
+    "passwordHash": "$2a$10$BkDzeQuTAPkWbXmqRpTbHO6GrS7j0MLfipkZZZfBLpehd73Z7kDqC",
+    "role": "institution",
+    "institutionId": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "createdAt": "2026-03-07T02:58:48.897Z"
+  },
+  {
+    "id": "683f77ac-d9de-46dc-acd0-35e0a65a0c03",
+    "name": "VIT Registrar",
+    "email": "registrar@vit.edu",
+    "passwordHash": "$2a$10$JUqopEdF.kauF0KGXr1Yv.plF8Uuh6DpGxfWOCt7IkGF7CfBs2eym",
+    "role": "institution",
+    "institutionId": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "createdAt": "2026-03-07T02:58:49.584Z"
+  },
+  {
+    "id": "fd07a8e3-6ee9-4af5-a8fb-3909459901bb",
+    "name": "Sneha Patel",
+    "email": "sneha.patel@vit.edu",
+    "passwordHash": "$2a$10$o7cGnSkaqY1astU16DoEYej5OAwILjCmaRX/.oQETXwDXdCb/W3Oy",
+    "role": "student",
+    "institutionId": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "createdAt": "2026-03-07T02:58:49.722Z"
+  },
+  {
+    "id": "e20bccb8-a2e4-4cdd-834d-f364b4f213b7",
+    "name": "Ananya Reddy",
+    "email": "ananya.reddy@srm.edu",
+    "passwordHash": "$2a$10$wtZfSm1gUVVrSpiR5EQur.A2xIl219QLTpeOU.LD7k4GwuevNsHmy",
+    "role": "student",
+    "institutionId": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "createdAt": "2026-03-07T02:59:10.572Z"
+  },
+  {
+    "id": "1c454500-3a15-499a-8384-4d76262486f0",
+    "name": "Arjun Verma",
+    "email": "arjun.verma@vit.edu",
+    "passwordHash": "$2a$10$t45UN.3411hxO8NUPzuL5.MZIR4HkJPX1zBcgp2x0uOQ4ZJfFaoz6",
+    "role": "student",
+    "institutionId": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "createdAt": "2026-03-07T02:59:11.525Z"
+  },
+  {
+    "id": "8f39d276-e4aa-43b1-8e72-f4da62d3dd76",
+    "name": "Karthik Iyer",
+    "email": "karthik.iyer@srm.edu",
+    "passwordHash": "$2a$10$LpF81QJNopuflO5yo0K/N.ZwFK2NDlfzCPYyVDXEf9rKbkVTo1G06",
+    "role": "student",
+    "institutionId": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "createdAt": "2026-03-07T02:59:26.589Z"
+  },
+  {
+    "id": "84e37c94-561c-429d-ac6e-db6c3179618f",
+    "name": "Meera Sharma",
+    "email": "meera.sharma@iits.edu",
+    "passwordHash": "$2a$10$zzz9zDlne2wSozWF3AXIwubGZXlKwVjX5/7cOVwm/MMEOMjykK3z.",
+    "role": "student",
+    "institutionId": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "createdAt": "2026-03-07T03:01:11.602Z"
+  },
+  {
+    "id": "a4d1b099-16f2-40f2-ae71-38b2153327b2",
+    "name": "Aditya Kumar",
+    "email": "aditya.kumar@iits.edu",
+    "passwordHash": "$2a$10$c.NfUPVSWU5SwrUK.8hDLOtjTt0Uog6slgOWXbymabgRfiUI5717C",
+    "role": "student",
+    "institutionId": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "createdAt": "2026-03-07T03:01:11.718Z"
+  },
+  {
+    "id": "23a38d97-f894-4448-b613-a8f65cd3cf4c",
+    "name": "Vivek Singh",
+    "email": "vivek.singh@srm.edu",
+    "passwordHash": "$2a$10$zGDCQiWJGhvl0NEwy2FnPuw19csMNIkuNlH.2BLhrz6ef5gL3FKuG",
+    "role": "student",
+    "institutionId": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "createdAt": "2026-03-07T03:01:12.471Z"
+  },
+  {
+    "id": "6c9f8cdd-2688-4ff7-b922-0500cc81ca50",
+    "name": "Pooja Menon",
+    "email": "pooja.menon@srm.edu",
+    "passwordHash": "$2a$10$/.o3ci2xKNpo6YLFFruzyOVOZFiOQPqpxqLoNPZTS6SQDYl5mKoFG",
+    "role": "student",
+    "institutionId": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "createdAt": "2026-03-07T03:01:12.591Z"
+  },
+  {
+    "id": "00ade3d6-c945-445b-a7df-d097a19ced3d",
+    "name": "Isha Gupta",
+    "email": "isha.gupta@vit.edu",
+    "passwordHash": "$2a$10$86AdYcuX74WL3xm0.RK7x.IoXR3ak4QU9VHUhHJPawvW89S/rdOuO",
+    "role": "student",
+    "institutionId": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "createdAt": "2026-03-07T03:01:13.279Z"
+  },
+  {
+    "id": "90518037-9326-4f2c-a2c1-aa432c3bf6f5",
+    "name": "Manav Arora",
+    "email": "manav.arora@vit.edu",
+    "passwordHash": "$2a$10$XX/.TOq.OCZmPa632ONgt.NIwWSJwqpxovvZE7alTk56pXExFpG9K",
+    "role": "student",
+    "institutionId": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "createdAt": "2026-03-07T03:01:13.391Z"
+  },
+  {
+    "id": "3301938a-d3f9-4b5b-b158-2fea41d1d996",
+    "name": "Nisha Agarwal",
+    "email": "nisha.agarwal@iits.edu",
+    "passwordHash": "$2a$10$4FDGFzoasjM26F/Sqhr1O.W1AXL2xHPV/Y3hyNwqKs/ZQx2SeFUYW",
+    "role": "student",
+    "institutionId": "170ad3f6-34c9-4ed2-a1e3-8e7bf9ac221d",
+    "createdAt": "2026-03-07T03:01:41.740Z"
+  },
+  {
+    "id": "1965b69e-84f1-4e7d-bcea-e0af1023e594",
+    "name": "Rahul Jain",
+    "email": "rahul.jain@srm.edu",
+    "passwordHash": "$2a$10$Px49BnGOLRv7Qg3o0BZGjej30O.f21x/U9QFG6Em1oFSje4erhqbO",
+    "role": "student",
+    "institutionId": "62d3300b-c0d6-40bd-9107-56a7c9958f3b",
+    "createdAt": "2026-03-07T03:01:43.917Z"
+  },
+  {
+    "id": "4897c675-28ec-4ea7-abc6-11a75cb26dd4",
+    "name": "Diya Kapoor",
+    "email": "diya.kapoor@vit.edu",
+    "passwordHash": "$2a$10$CrVBIo2q1ExZxrqqSBq.5uMOYviCxgBPPP6gA32flqztVDoQlXVS.",
+    "role": "student",
+    "institutionId": "64833820-5ea3-4892-ab24-abd5d0032791",
+    "createdAt": "2026-03-07T03:01:46.110Z"
+  },
+  {
+    "id": "6f17eed3-b6bf-407a-a5d4-776e3a626a88",
+    "name": "Local Inst User",
+    "email": "localinst1777350275@example.edu",
+    "passwordHash": "$2a$10$mbSOuoUzxMLCBuvrIRqJW.wZIEPmU9djL3HrfVwgTAquFzCG8ryZ.",
+    "role": "institution",
+    "institutionId": "cb998ed0-7a2b-46a4-8b22-fa221c2745dc",
+    "createdAt": "2026-04-28T04:24:35.275Z"
+  },
+  {
+    "id": "df161b03-32f1-4a2a-9b9e-c8bba729b18d",
+    "name": "Local Student",
+    "email": "localstudent1777350275@example.com",
+    "passwordHash": "$2a$10$CptWEdLKzY8Z6ISqBjpD7OliCZFwDdxlSzGABaQMoPpuDePPs6fEW",
+    "role": "student",
+    "institutionId": "cb998ed0-7a2b-46a4-8b22-fa221c2745dc",
+    "createdAt": "2026-04-28T04:24:35.480Z"
+  },
+  {
+    "id": "6c9a29f2-0521-41c9-a05e-19163167dd49",
+    "name": "Local Inst User 2",
+    "email": "localinst21777350316@example.edu",
+    "passwordHash": "$2a$10$AO5sXDTMCbV8sGNmtVw5M./oFnS6DcR3XQZRO39nF.04IbCgKTkq.",
+    "role": "institution",
+    "institutionId": "38680ac7-14b7-4507-b31d-98f27f4c958f",
+    "createdAt": "2026-04-28T04:25:16.107Z"
+  },
+  {
+    "id": "da111e52-35ef-45c1-b192-62487a23fbac",
+    "name": "Local Student 2",
+    "email": "localstudent21777350316@example.com",
+    "passwordHash": "$2a$10$bIu6ZM/0wsy7IfDMlDlG8eVxwstvpQjSBD1h5T17DRTlJ0jloDWHq",
+    "role": "student",
+    "institutionId": "38680ac7-14b7-4507-b31d-98f27f4c958f",
+    "createdAt": "2026-04-28T04:25:16.289Z"
+  },
+  {
+    "id": "bc18ffdf-4248-4ee8-a379-815d8d6cbc78",
+    "name": "add",
+    "email": "adi@test.com",
+    "passwordHash": "$2a$10$2nUKQQHNl/80c7DbJAJzHuYdP1KC3Kwviar7JQqGg/5jIv.OmFfjO",
+    "role": "institution",
+    "institutionId": null,
+    "createdAt": "2026-04-28T04:29:49.819Z"
+  },
+  {
+    "id": "e832ded3-5289-4086-a337-671b6238f2d6",
+    "name": "SRMIST",
+    "email": "admin@srmist.edu.in",
+    "passwordHash": "$2a$10$8Z5ieU1qYdj34iLJBINSseIZ3h3sV.JAQluGbr8KCn3S3OxZYyesy",
+    "role": "institution",
+    "institutionId": "61d3ca7e-d781-4c80-8803-b51322e0b7df",
+    "createdAt": "2026-04-28T04:44:41.498Z"
+  },
+  {
+    "id": "e648168f-0bad-4018-8b7d-52a9afa81dab",
+    "name": "ahmad",
+    "email": "ahmadshajee@gmail.com",
+    "passwordHash": "$2a$10$kwOJRYykl4FOiTYlWSnwZOMkLzM17fP3ivd0TBDfkuxXPfdRd1N8.",
+    "role": "student",
+    "institutionId": null,
+    "createdAt": "2026-04-28T04:46:03.201Z"
+  },
+  {
+    "id": "d5d1fb3b-5b5c-483e-bc69-5fe75ea93f4d",
+    "name": "Ahmad",
+    "email": "ahmadshajee0@gmail.com",
+    "passwordHash": "$2a$10$ZwjTxeyVYO9WWt55uhJ.3.5shZTKRZUiC0jxKzvNj2IlUviOYvmve",
+    "role": "student",
+    "institutionId": "61d3ca7e-d781-4c80-8803-b51322e0b7df",
+    "createdAt": "2026-04-28T04:46:56.764Z"
+  }
+]
