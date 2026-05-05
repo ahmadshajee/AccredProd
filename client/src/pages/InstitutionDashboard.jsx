@@ -37,6 +37,8 @@ export default function InstitutionDashboard({
     try {
       await onRegisterInstitution(institutionForm);
       setInstitutionForm(initialInstitutionForm);
+    } catch {
+      // Error is surfaced by the parent DashboardPage via error state
     } finally {
       setSubmittingInstitution(false);
     }
@@ -48,6 +50,8 @@ export default function InstitutionDashboard({
     try {
       await onIssueCredential(credentialForm);
       setCredentialForm(initialCredentialForm);
+    } catch {
+      // Error is surfaced by the parent DashboardPage via error state
     } finally {
       setSubmittingCredential(false);
     }

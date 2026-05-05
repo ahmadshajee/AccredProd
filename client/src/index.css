@@ -42,6 +42,11 @@ select {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+select.field option {
+  background-color: #222222;
+  color: #faf3e1;
+}
+
 .field::placeholder {
   color: rgba(245, 231, 198, 0.5);
 }

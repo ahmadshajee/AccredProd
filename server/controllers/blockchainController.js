@@ -1,23 +1,29 @@
 const { readCollection } = require('../models/db');
 
-function buildChainTransactions(credentials, institutions) {
+function buildChainTransactions(credentials, institutions, users = []) {
   const sortedCredentials = [...credentials].sort(
     (left, right) => new Date(left.issuedAt).getTime() - new Date(right.issuedAt).getTime()
   );
 
   const mintedTransactions = sortedCredentials.map((credential, index) => {
-    const institution = institutions.find((entry) => entry.id === credential.institutionId);
+    let resolvedName = 'Unknown Institution';
+    if (credential.credentialType === 'employment') {
+      resolvedName = users.find((entry) => entry.id === credential.institutionId)?.name || 'Unknown Employer';
+    } else {
+      resolvedName = institutions.find((entry) => entry.id === credential.institutionId)?.name || 'Unknown Institution';
+    }
     return {
       blockNumber: 120000 + index + 1,
       txHash: credential.txHash,
       tokenId: credential.tokenId,
       verificationKey: credential.verificationKey || credential.txHash || credential.tokenId,
       minedAt: credential.issuedAt,
-      institutionName: institution?.name || 'Unknown Institution',
+      institutionName: resolvedName,
       studentName: credential.studentName,
       degree: credential.degree,
       major: credential.major,
       status: credential.status,
+      credentialType: credential.credentialType || 'academic',
     };
   });
 
@@ -28,7 +34,8 @@ async function listTransactions(_req, res) {
   try {
     const credentials = await readCollection('credentials');
     const institutions = await readCollection('institutions');
-    const transactions = buildChainTransactions(credentials, institutions);
+    const users = await readCollection('users');
+    const transactions = buildChainTransactions(credentials, institutions, users);
 
     const summary = {
       network: 'AccredChain Network',
@@ -50,7 +57,8 @@ async function getTransaction(req, res) {
     const { txHash } = req.params;
     const credentials = await readCollection('credentials');
     const institutions = await readCollection('institutions');
-    const transactions = buildChainTransactions(credentials, institutions);
+    const users = await readCollection('users');
+    const transactions = buildChainTransactions(credentials, institutions, users);
     const transaction = transactions.find((entry) => entry.txHash === txHash);
 
     if (!transaction) {

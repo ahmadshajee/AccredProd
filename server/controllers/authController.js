@@ -11,6 +11,7 @@ function sanitizeUser(user) {
     email: user.email,
     role: user.role,
     institutionId: user.institutionId,
+    employerStatus: user.employerStatus,
     createdAt: user.createdAt,
   };
 }
@@ -23,8 +24,8 @@ async function register(req, res) {
       return res.status(400).json({ message: 'Name, email, password, and role are required.' });
     }
 
-    if (!['student', 'institution'].includes(role)) {
-      return res.status(400).json({ message: 'Only student and institution self-registration is allowed.' });
+    if (!['student', 'institution', 'employer', 'verifier'].includes(role)) {
+      return res.status(400).json({ message: 'Only student, institution, employer, and verifier self-registration is allowed.' });
     }
 
     if (password.length < 6) {
@@ -44,6 +45,8 @@ async function register(req, res) {
       passwordHash: await bcrypt.hash(password, 10),
       role,
       institutionId: null,
+      savedVerifications: [],
+      ...(role === 'employer' ? { employerStatus: 'pending' } : {}),
       createdAt: new Date().toISOString(),
     };
 

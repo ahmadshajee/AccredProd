@@ -85,11 +85,11 @@ export default function VerifyResultPage() {
               </div>
             ) : null}
             <div className="grid gap-4 md:grid-cols-2 text-sm text-[#F5E7C6]">
-              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Student Name</span><p className="mt-2 text-white">{credential.studentName}</p></div>
-              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Degree</span><p className="mt-2 text-white">{credential.degree}</p></div>
-              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Major</span><p className="mt-2 text-white">{credential.major}</p></div>
-              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Institution</span><p className="mt-2 text-white">{credential.institutionName}</p></div>
-              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Graduation Date</span><p className="mt-2 text-white">{credential.graduationDate}</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Student/Employee</span><p className="mt-2 text-white">{credential.studentName}</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">{credential.credentialType === 'employment' ? 'Position' : 'Degree'}</span><p className="mt-2 text-white">{credential.degree}</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">{credential.credentialType === 'employment' ? 'Department' : 'Major'}</span><p className="mt-2 text-white">{credential.major}</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">{credential.credentialType === 'employment' ? 'Employer' : 'Institution'}</span><p className="mt-2 text-white">{credential.institutionName}</p></div>
+              <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">{credential.credentialType === 'employment' ? 'Employment Date' : 'Graduation Date'}</span><p className="mt-2 text-white">{credential.graduationDate}</p></div>
               <div className="rounded-2xl border border-white/10 bg-black/10 p-4"><span className="text-[#FAF3E1]/60">Issued Date</span><p className="mt-2 text-white">{new Date(credential.issuedAt).toLocaleDateString()}</p></div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-black/10 p-4 text-sm text-[#F5E7C6]">

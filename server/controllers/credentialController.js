@@ -104,16 +104,31 @@ async function issueCredential(req, res) {
         return res.status(400).json({ message: 'Invalid recipient wallet address for on-chain minting.' });
       }
 
-      const onChainResult = await issueCredentialOnChain({
-        recipient: recipientAddress,
-        tokenURI: ipfsCID,
-        credentialType: 'degree',
-        expiresAt: 0,
-      });
+      try {
+        const onChainResult = await issueCredentialOnChain({
+          recipient: recipientAddress,
+          tokenURI: ipfsCID,
+          credentialType: 'degree',
+          expiresAt: 0,
+        });
 
-      tokenId = onChainResult.tokenId || generateTokenId({ studentEmail: normalizedStudentEmail, issuedAt, nonce: uuidv4() });
-      txHash = onChainResult.txHash;
-      chainMode = 'onchain';
+        tokenId = onChainResult.tokenId || generateTokenId({ studentEmail: normalizedStudentEmail, issuedAt, nonce: uuidv4() });
+        txHash = onChainResult.txHash;
+        chainMode = 'onchain';
+      } catch (chainError) {
+        console.warn('On-chain issuance failed, falling back to mock mode:', chainError.message);
+        tokenId = generateTokenId({
+          studentEmail: normalizedStudentEmail,
+          studentName,
+          degree,
+          major,
+          graduationDate,
+          institutionId: institution.id,
+          issuedAt,
+          nonce: uuidv4(),
+        });
+        txHash = generateTxHash();
+      }
     } else {
       tokenId = generateTokenId({
         studentEmail: normalizedStudentEmail,
@@ -176,13 +191,15 @@ async function getMyCredentials(req, res) {
   try {
     const credentials = await readCollection('credentials');
     const institutions = await readCollection('institutions');
+    const users = await readCollection('users');
 
     const result = credentials.filter((entry) => entry.studentId === req.user.id);
 
     const enriched = result.map((credential) => ({
       ...credential,
-      institutionName:
-        institutions.find((entry) => entry.id === credential.institutionId)?.name || 'Unknown Institution',
+      institutionName: credential.credentialType === 'employment' 
+        ? (users.find((entry) => entry.id === credential.institutionId)?.name || 'Unknown Employer')
+        : (institutions.find((entry) => entry.id === credential.institutionId)?.name || 'Unknown Institution'),
     }));
 
     return res.json({ credentials: enriched });
@@ -235,8 +252,12 @@ async function revokeCredential(req, res) {
     const numericTokenId = /^\d+$/.test(String(credential.tokenId));
 
     if (isBlockchainConfigured() && numericTokenId) {
-      const revokeResult = await revokeCredentialOnChain(credential.tokenId);
-      revokeTxHash = revokeResult.txHash;
+      try {
+        const revokeResult = await revokeCredentialOnChain(credential.tokenId);
+        revokeTxHash = revokeResult.txHash;
+      } catch (chainError) {
+        console.warn('On-chain revoke failed:', chainError.message);
+      }
     }
 
     credential.status = 'revoked';

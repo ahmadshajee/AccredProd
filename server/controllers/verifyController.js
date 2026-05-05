@@ -18,7 +18,14 @@ async function verifyCredentialByToken(req, res) {
       return res.status(404).json({ message: 'Credential not found' });
     }
 
-    const institution = institutions.find((entry) => entry.id === credential.institutionId);
+    let institutionName = 'Unknown Institution';
+    if (credential.credentialType === 'employment') {
+      const users = await readCollection('users');
+      institutionName = users.find((entry) => entry.id === credential.institutionId)?.name || 'Unknown Employer';
+    } else {
+      const institution = institutions.find((entry) => entry.id === credential.institutionId);
+      institutionName = institution?.name || 'Unknown Institution';
+    }
 
     let onChain = { available: false };
     if (/^\d+$/.test(String(credential.tokenId))) {
@@ -31,6 +38,12 @@ async function verifyCredentialByToken(req, res) {
     }
 
     return res.json({
+      isValid: effectiveStatus === 'active',
+      message: effectiveStatus === 'active'
+        ? 'This credential is valid and active.'
+        : effectiveStatus === 'expired'
+          ? 'This credential has expired.'
+          : 'This credential has been revoked.',
       credential: {
         tokenId: credential.tokenId,
         verificationKey: credential.verificationKey || credential.txHash || credential.tokenId,
@@ -38,10 +51,11 @@ async function verifyCredentialByToken(req, res) {
         degree: credential.degree,
         major: credential.major,
         graduationDate: credential.graduationDate,
-        institutionName: institution?.name || 'Unknown Institution',
+        institutionName,
         issuedAt: credential.issuedAt,
         txHash: credential.txHash,
         status: effectiveStatus,
+        credentialType: credential.credentialType || 'academic',
         chainMode: credential.chainMode || 'mock',
         tokenURI: onChain.tokenURI || credential.ipfsCID || null,
         onChain: {

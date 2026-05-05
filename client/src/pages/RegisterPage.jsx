@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AlertMessage from '../components/AlertMessage';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { useAuth } from '../context/AuthContext';
@@ -51,6 +51,8 @@ export default function RegisterPage() {
           <select className="field" value={form.role} onChange={(event) => setForm((current) => ({ ...current, role: event.target.value }))}>
             <option value="student">Student</option>
             <option value="institution">Institution</option>
+            <option value="employer">Employer</option>
+            <option value="verifier">Verifier</option>
           </select>
         </div>
 
@@ -64,6 +66,11 @@ export default function RegisterPage() {
         </button>
 
         {loading ? <LoadingSpinner label="Creating account..." /> : null}
+
+        <p className="mt-6 text-center text-sm text-[#F5E7C6]/75">
+          Already have an account?{' '}
+          <Link className="text-[#FA8112] hover:underline" to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );

@@ -8,6 +8,7 @@ const institutionRoutes = require('./routes/institutions');
 const credentialRoutes = require('./routes/credentials');
 const verifyRoutes = require('./routes/verify');
 const healthRoutes = require('./routes/health');
+const employerRoutes = require('./routes/employer');
 const { connectDatabase, migrateLegacyData, seedDefaultAdmin } = require('./models/db');
 
 const app = express();
@@ -26,6 +27,7 @@ app.use('/api/institutions', institutionRoutes);
 app.use('/api/credentials', credentialRoutes);
 app.use('/api/verify', verifyRoutes);
 app.use('/api/health', healthRoutes);
+app.use('/api/employer', employerRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

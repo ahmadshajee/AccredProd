@@ -16,12 +16,14 @@ accredchain/
 │   │   │   ├── AdminDashboard.jsx
 │   │   │   ├── BlockchainPage.jsx
 │   │   │   ├── DashboardPage.jsx
+│   │   │   ├── EmployerDashboard.jsx
 │   │   │   ├── InstitutionDashboard.jsx
 │   │   │   ├── LandingPage.jsx
 │   │   │   ├── LoginPage.jsx
 │   │   │   ├── NotFoundPage.jsx
 │   │   │   ├── RegisterPage.jsx
 │   │   │   ├── StudentDashboard.jsx
+│   │   │   ├── VerifierDashboard.jsx
 │   │   │   ├── VerifyPage.jsx
 │   │   │   └── VerifyResultPage.jsx
 │   │   ├── services/
@@ -47,6 +49,7 @@ accredchain/
 │   │   ├── authController.js
 │   │   ├── blockchainController.js
 │   │   ├── credentialController.js
+│   │   ├── employerController.js
 │   │   ├── institutionController.js
 │   │   └── verifyController.js
 │   ├── data/
@@ -65,6 +68,7 @@ accredchain/
 │   │   ├── auth.js
 │   │   ├── blockchain.js
 │   │   ├── credentials.js
+│   │   ├── employer.js
 │   │   ├── health.js
 │   │   ├── institutions.js
 │   │   └── verify.js
@@ -96,6 +100,9 @@ accredchain/
 - `GET /api/credentials/issued`
 - `PATCH /api/credentials/:id/revoke`
 - `GET /api/verify/:tokenId`
+- `GET /api/employer/history`
+- `POST /api/employer/verify`
+- `DELETE /api/employer/verify/:tokenId`
 
 ## Frontend Route Summary
 

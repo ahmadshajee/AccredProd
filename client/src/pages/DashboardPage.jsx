@@ -1,60 +1,23 @@
-import { Award, Database } from 'lucide-react';
+import { Award } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { credentialApi, healthApi, institutionApi } from '../services/api';
+import { credentialApi, employerApi, institutionApi } from '../services/api';
 import AdminDashboard from './AdminDashboard';
 import InstitutionDashboard from './InstitutionDashboard';
 import StudentDashboard from './StudentDashboard';
+import EmployerDashboard from './EmployerDashboard';
+import VerifierDashboard from './VerifierDashboard';
 
 export default function DashboardPage() {
   const { token, user, institution, refreshProfile } = useAuth();
   const [studentCredentials, setStudentCredentials] = useState([]);
   const [issuedCredentials, setIssuedCredentials] = useState([]);
   const [institutions, setInstitutions] = useState([]);
+  const [employers, setEmployers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [successMessage, setSuccessMessage] = useState('');
   const [error, setError] = useState('');
-  const [dbStatus, setDbStatus] = useState({
-    state: 'checking',
-    label: 'Checking MongoDB...',
-  });
 
-  useEffect(() => {
-    let active = true;
-
-    async function loadHealth() {
-      try {
-        const data = await healthApi.status();
-        const databaseState = data?.database?.state || 'unknown';
-        if (!active) {
-          return;
-        }
-
-        setDbStatus({
-          state: databaseState,
-          label:
-            databaseState === 'connected'
-              ? `MongoDB connected (${data?.database?.dbName || 'accredchain'})`
-              : `MongoDB ${databaseState}`,
-        });
-      } catch {
-        if (!active) {
-          return;
-        }
-
-        setDbStatus({
-          state: 'disconnected',
-          label: 'MongoDB disconnected',
-        });
-      }
-    }
-
-    loadHealth();
-
-    return () => {
-      active = false;
-    };
-  }, []);
 
   async function loadDashboardData() {
     if (!token || !user) {
@@ -67,8 +30,11 @@ export default function DashboardPage() {
 
     try {
       if (user.role === 'admin') {
-        const data = await institutionApi.list(token);
-        setInstitutions(data.institutions || []);
+        const instData = await institutionApi.list(token);
+        setInstitutions(instData.institutions || []);
+        
+        const empData = await employerApi.listAdmin(token);
+        setEmployers(empData.employers || []);
       }
 
       if (user.role === 'institution') {
@@ -110,6 +76,30 @@ export default function DashboardPage() {
 
     try {
       const data = await institutionApi.reject(institutionId, token);
+      setSuccessMessage(data.message);
+      await loadDashboardData();
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleApproveEmployer(employerId) {
+    setSuccessMessage('');
+    setError('');
+    try {
+      const data = await employerApi.approveAdmin(employerId, token);
+      setSuccessMessage(data.message);
+      await loadDashboardData();
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleRejectEmployer(employerId) {
+    setSuccessMessage('');
+    setError('');
+    try {
+      const data = await employerApi.rejectAdmin(employerId, token);
       setSuccessMessage(data.message);
       await loadDashboardData();
     } catch (err) {
@@ -178,16 +168,7 @@ export default function DashboardPage() {
             <Award className="h-4 w-4 text-[#FA8112]" />
             Academic Credential Workspace
           </div>
-          <div
-            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold ${
-              dbStatus.state === 'connected'
-                ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-200'
-                : 'border-rose-400/40 bg-rose-500/10 text-rose-200'
-            }`}
-          >
-            <Database className="h-4 w-4" />
-            {dbStatus.label}
-          </div>
+
         </div>
       </section>
 
@@ -195,9 +176,12 @@ export default function DashboardPage() {
         <AdminDashboard
           error={error}
           institutions={institutions}
+          employers={employers}
           loading={loading}
           onApprove={handleApprove}
           onReject={handleReject}
+          onApproveEmployer={handleApproveEmployer}
+          onRejectEmployer={handleRejectEmployer}
           successMessage={successMessage}
         />
       ) : null}
@@ -222,6 +206,14 @@ export default function DashboardPage() {
           loading={loading}
           successMessage={successMessage}
         />
+      ) : null}
+
+      {user.role === 'employer' ? (
+        <EmployerDashboard token={token} user={user} />
+      ) : null}
+
+      {user.role === 'verifier' ? (
+        <VerifierDashboard token={token} user={user} />
       ) : null}
     </div>
   );

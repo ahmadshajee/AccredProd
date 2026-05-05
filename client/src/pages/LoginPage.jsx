@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AlertMessage from '../components/AlertMessage';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { useAuth } from '../context/AuthContext';
@@ -60,6 +60,11 @@ export default function LoginPage() {
         </button>
 
         {loading ? <LoadingSpinner label="Authenticating..." /> : null}
+
+        <p className="mt-6 text-center text-sm text-[#F5E7C6]/75">
+          Don&apos;t have an account?{' '}
+          <Link className="text-[#FA8112] hover:underline" to="/register">Register</Link>
+        </p>
       </form>
     </div>
   );

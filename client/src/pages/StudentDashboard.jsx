@@ -70,8 +70,12 @@ export default function StudentDashboard({ credentials, loading, error, successM
                     <GraduationCap className="h-6 w-6" />
                   </span>
                   <div>
-                    <h2 className="text-xl font-semibold text-white">{credential.degree}</h2>
-                    <p className="text-sm text-[#F5E7C6]/75">{credential.major}</p>
+                    <h2 className="text-xl font-semibold text-white">
+                      {credential.credentialType === 'employment' ? credential.degree : credential.degree}
+                    </h2>
+                    <p className="text-sm text-[#F5E7C6]/75">
+                      {credential.credentialType === 'employment' ? credential.major : credential.major}
+                    </p>
                   </div>
                 </div>
                 <span className={`rounded-full border px-3 py-1 text-xs font-semibold capitalize ${statusClass(credential.status)}`}>
@@ -80,8 +84,8 @@ export default function StudentDashboard({ credentials, loading, error, successM
               </div>
 
               <div className="mt-6 grid gap-3 text-sm text-[#F5E7C6]">
-                <p><span className="text-[#FAF3E1]/60">Institution:</span> {credential.institutionName}</p>
-                <p><span className="text-[#FAF3E1]/60">Graduation Date:</span> {credential.graduationDate}</p>
+                <p><span className="text-[#FAF3E1]/60">{credential.credentialType === 'employment' ? 'Employer' : 'Institution'}:</span> {credential.institutionName}</p>
+                <p><span className="text-[#FAF3E1]/60">{credential.credentialType === 'employment' ? 'Employment Date' : 'Graduation Date'}:</span> {credential.graduationDate}</p>
                 <p><span className="text-[#FAF3E1]/60">Issued Date:</span> {new Date(credential.issuedAt).toLocaleDateString()}</p>
                 <p className="font-mono text-xs break-all"><span className="font-sans text-[#FAF3E1]/60">verificationKey:</span> {verificationKey}</p>
                 <p className="font-mono text-xs break-all"><span className="font-sans text-[#FAF3E1]/60">txHash:</span> {credential.txHash}</p>

@@ -153,3 +153,78 @@ export const healthApi = {
     }
   },
 };
+
+export const employerApi = {
+  async getHistory(token) {
+    try {
+      const { data } = await api.get('/employer/history', { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async saveVerification(tokenId, token) {
+    try {
+      const { data } = await api.post('/employer/verify', { tokenId }, { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async removeVerification(tokenId, token) {
+    try {
+      const { data } = await api.delete(`/employer/verify/${tokenId}`, { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async getIssuedCredentials(token) {
+    try {
+      const { data } = await api.get('/employer/issued', { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async issueCredential(payload, token) {
+    try {
+      const { data } = await api.post('/employer/issue', payload, { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async revokeCredential(id, token) {
+    try {
+      const { data } = await api.patch(`/employer/${id}/revoke`, {}, { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async listAdmin(token) {
+    try {
+      const { data } = await api.get('/employer/admin/list', { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async approveAdmin(id, token) {
+    try {
+      const { data } = await api.patch(`/employer/admin/${id}/approve`, {}, { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+  async rejectAdmin(id, token) {
+    try {
+      const { data } = await api.patch(`/employer/admin/${id}/reject`, {}, { headers: authHeader(token) });
+      return data;
+    } catch (error) {
+      throw new Error(normalizeError(error));
+    }
+  },
+};

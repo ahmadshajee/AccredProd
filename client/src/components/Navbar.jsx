@@ -19,6 +19,7 @@ export default function Navbar() {
         </Link>
 
         <nav className="flex items-center gap-2">
+
           <NavLink className={navLinkClass} to="/verify">
             Verify
           </NavLink>

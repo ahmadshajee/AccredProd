@@ -29,7 +29,8 @@ This account is seeded automatically when the server starts for the first time.
 - Institutions can issue simulated credential NFTs to students.
 - If a student email does not exist yet, issuing a credential auto-creates that student account with the default password `Student123!`.
 - Students can log in, view owned credentials, and share a public verification link.
-- Verifiers can validate a credential publicly with no login.
+- Employers and Verifiers can register accounts, verify credentials from their dashboards, and save them to their verification history.
+- Verifiers can also validate a credential publicly with no login via the public verification link.
 - Credentials can be revoked by the issuing institution.
 - A public mock blockchain explorer shows every minted credential as a simulated on-chain transaction.
 
@@ -58,6 +59,12 @@ This account is seeded automatically when the server starts for the first time.
 ### Public Verify
 
 - `GET /api/verify/:tokenId`
+
+### Employer & Verifier
+
+- `GET /api/employer/history`
+- `POST /api/employer/verify`
+- `DELETE /api/employer/verify/:tokenId`
 
 ### Mock Blockchain
 
